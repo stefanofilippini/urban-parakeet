@@ -29,9 +29,89 @@ body {
 .aside {
     width: 30%;
     background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
 }
 
 .main {
     flex-grow: 1;
     background-color: azure;
+}
+
+.header-aside {
+    height: 50px;
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+}
+
+.personal-image {
+    height: 100%;
+    width: 50px;
+    background-color: rgb(175, 168, 67);
+}
+
+.personal-username {
+    flex-grow: 1;
+}
+
+.icon {
+    width: 25px;
+    height: 100%;
+    background-color: rgb(126, 121, 62);
+    border: 1px solid grey;
+}
+
+.notifications {
+    height: 60px;
+    background-color: blanchedalmond;
+    display: flex;
+}
+
+.notific {
+    width: 60px;
+    height: 100%;
+    background-color: papayawhip;
+}
+
+.text-notific {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.search {
+    height: 30px;
+    background-color: burlywood;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+}
+
+.button-search {
+    width: 35px;
+}
+
+.search-input {
+    flex-grow: 1;
+}
+
+.chats {
+    flex-grow: 1;
+    background-color: cornsilk;
+}
+
+.user {
+    height: 60px;
+    background-color: darkgoldenrod;
+    display: flex;
+    align-items: center;
+}
+
+.user-image {
+    height: 100%;
+    width: 60px;
+    background-color: darkkhaki;
+    margin-right: 10px;
 }
