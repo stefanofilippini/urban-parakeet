@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(
+        to bottom,
+        #33988a 0%,
+        #33988a 15%,
+        #dadcd6 15%,
+        #dadcd6 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: inline-block;
+    background-color: #ffffff;
+    height: 95%;
+    width: 70%;
+    display: flex;
+}
+
+.aside {
+    width: 30%;
+    background-color: aquamarine;
+}
+
+.main {
+    flex-grow: 1;
+    background-color: azure;
+}
