@@ -46,6 +46,7 @@ body {
     background-color: #eaeaea;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .personal-image,
@@ -158,6 +159,9 @@ body {
     border-top: 1px solid #f5f5f5;
 }
 
+.chat-text {
+    flex-grow: 1;
+}
 
 .user:hover {
     background-color: #f5f5f5;
@@ -177,6 +181,7 @@ body {
     margin-right: 10px;
     display: flex;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .user-image img {
@@ -198,8 +203,13 @@ body {
     flex-grow: 1;
 }
 
-.active-lastAcces {
+.active-lastAcces,
+.last-message {
     color: #6f7578;
+    white-space: nowrap;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .main-content {
@@ -208,9 +218,7 @@ body {
     flex-grow: 1;
     background-image: url(../img/mine.jpg);
     padding: 40px 70px;
-    overflow-y: auto;
 }
-
 
 .message {
     padding: 7px 5px 3px 10px;
@@ -237,6 +245,7 @@ body {
     align-self: flex-start;
     word-break: break-word;
     margin-bottom: 3px;
+    margin-right: 10px;
 }
 
 .message .date {
@@ -252,6 +261,7 @@ body {
     background-color: #f3eeea;
     display: flex;
     justify-content: space-evenly;
+    flex-shrink: 0;
 }
 
 .new-text {
@@ -269,4 +279,8 @@ body {
 .footer-main .icon {
     color: #6e7578;
     font-size: 22px;
+}
+
+.overflow-scroll {
+    overflow: auto;
 }

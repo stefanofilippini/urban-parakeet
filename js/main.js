@@ -102,6 +102,7 @@ var app = new Vue ({
     methods : {
         setChat (index) {
             this.activeChat = index
+            this.scrollToEnd();
         },
 
         lastAccess(array) {
@@ -114,8 +115,13 @@ var app = new Vue ({
             return last;
         },
 
+        lastMessage(array) {
+            let last_message = array[array.length - 1].text;
+            return last_message;
+        },
+
         nowDateTime() {
-            const now =dayjs().format('DD/MM/YYY HH:mm:ss');
+            const now =dayjs().format('DD/MM/YYYY HH:mm:ss');
             return now;
         },
 
@@ -127,6 +133,9 @@ var app = new Vue ({
                     text: 'ok',
                     status: 'received'
                 })
+
+                //scroll to bottom
+                this.scrollToEnd();
             },
                 2000);
         },
@@ -145,6 +154,9 @@ var app = new Vue ({
                 //add response
                 this.addResponse(this.contacts[this.activeChat].messages);
 
+                //scroll to bottom
+                this.scrollToEnd();
+
                 //clean up
                 this.newMessage='';
 
@@ -152,6 +164,14 @@ var app = new Vue ({
                 console.log(this.$refs);
                 this.$refs.messageInput.focus()
             }
+        },
+
+        scrollToEnd() {
+            setTimeout(() => {
+                let container = document.querySelector(".overflow-scroll");
+                let scrollHeight = container.scrollHeight;
+                container.scrollTop = scrollHeight;
+            }, 0);
         },
     }
 })
