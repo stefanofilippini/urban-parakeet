@@ -3,7 +3,7 @@ console.log('JS OK');
 var app = new Vue ({
     el: "#app",
     data: {
-        
+
         user: {
             name: 'Stefano',
             avatar: '_5',
@@ -96,10 +96,62 @@ var app = new Vue ({
 
         activeChat: 0,
 
+        newMessage: '',
+
     },
     methods : {
         setChat (index) {
             this.activeChat = index
+        },
+
+        lastAccess(array) {
+            let last = '';
+            for (let i = 0; i < array.length; i++) {
+                if (array[i].status === 'received') {
+                   last = array[i].date;
+               } 
+            }
+            return last;
+        },
+
+        nowDateTime() {
+            const now =dayjs().format('DD/MM/YYY HH:mm:ss');
+            return now;
+        },
+
+        addResponse (array) {
+            //(function(){ alert("Hello"); }, 3000)
+            setTimeout (() => {
+                array.push({
+                    date: this.nowDateTime(),
+                    text: 'ok',
+                    status: 'received'
+                })
+            },
+                2000);
+        },
+
+        addMessage() {
+            if (this.newMessage !=='') {
+                console.log(this.newMessage);
+
+                //aggiunta message in messages
+                this.contacts[this.activeChat].messages.push({
+                    date: this.nowDateTime(),
+                    text: this.newMessage,
+                    status: 'sent'
+                });
+
+                //add response
+                this.addResponse(this.contacts[this.activeChat].messages);
+
+                //clean up
+                this.newMessage='';
+
+                //set focus
+                console.log(this.$refs);
+                this.$refs.messageInput.focus()
+            }
         },
     }
 })

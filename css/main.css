@@ -147,6 +147,7 @@ body {
 .chats {
     flex-grow: 1;
     padding: 5px;
+    overflow-y: auto;
 }
 
 .user {
@@ -207,6 +208,7 @@ body {
     flex-grow: 1;
     background-image: url(../img/mine.jpg);
     padding: 40px 70px;
+    overflow-y: auto;
 }
 
 
