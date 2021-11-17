@@ -31,6 +31,7 @@ body {
     width: 30%;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid #d7d7d7;
 }
 
 .main {
@@ -38,7 +39,8 @@ body {
     background-color: azure;
 }
 
-.header-aside {
+.header-aside,
+.header-main {
     height: 50px;
     padding: 5px;
     background-color: #eaeaea;
@@ -46,7 +48,8 @@ body {
     align-items: center;
 }
 
-.personal-image {
+.personal-image,
+.active-user-image {
     height: 100%;
     width: 50px;
     display: flex;
@@ -54,7 +57,8 @@ body {
     align-items: center;
 }
 
-.personal-image img {
+.personal-image img,
+.active-user-image img {
     height: 100%;
     border-radius: 50%;
 }
@@ -176,39 +180,85 @@ body {
 
 .main {
     width: 30%;
-    background-color: aquamarine;
     display: flex;
     flex-direction: column;
 }
 
-.header-main {
-    height: 50px;
-    background-color: bisque;
-    display: flex;
-    align-items: center;
-}
-
-.active-user-image {
-    height: 100%;
-    width: 50px;
-    background-color: rgb(175, 168, 67);
-    margin-right: 10px;
-}
-
 .active-user {
+    margin-left: 7px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
 }
 
+.active-lastAcces {
+    color: #6f7578;
+}
+
 .main-content {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
-    background-color: peachpuff;
+    background-image: url(../img/mine.jpg);
+    padding: 40px 70px;
+}
+
+
+.message {
+    padding: 7px 5px 3px 10px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+    max-width: 500px;
+    margin-bottom: 15px;
+}
+
+.sent {
+    align-self: flex-end;
+    background-color: #d9fabc;
+    
+}
+
+.recived {
+    align-self: flex-start;
+    background-color: #ffffff;
+}
+
+.message .text {
+    align-self: flex-start;
+    word-break: break-word;
+}
+
+.message .date {
+    align-self: flex-end;
+    font-size: 10px;
+    color: grey;
 }
 
 .footer-main {
+    padding: 8px 0;
     height: 60px;
     width: 100%;
-    background-color: pink;
+    background-color: #f3eeea;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.new-text {
+    color: #555555;
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.new-text::placeholder {
+    color: #8f8f8f;
+}
+
+.footer-main .icon {
+    color: #6e7578;
+    font-size: 22px;
 }
