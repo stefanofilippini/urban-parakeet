@@ -3,6 +3,12 @@ console.log('JS OK');
 var app = new Vue ({
     el: "#app",
     data: {
+        
+        user: {
+            name: 'Stefano',
+            avatar: '_5',
+        },
+
         contacts: [
             {
                 name: 'Michele',
@@ -86,7 +92,14 @@ var app = new Vue ({
                     }
                 ],
             },
-        ]
+        ],
+
+        activeChat: 0,
+
+    },
+    methods : {
+        setChat (index) {
+            this.activeChat = index
+        },
     }
 })
-

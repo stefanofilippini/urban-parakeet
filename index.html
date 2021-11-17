@@ -17,9 +17,12 @@
         <aside class="aside">
             <div class="header-aside">
                 <div class="personal-image">
-                    <img src="./img/avatar_1.jpg" alt="">
+                    <img
+                        :src="`./img/avatar${user.avatar}.jpg`"
+                        :alt="user.name"
+                    >
                 </div>
-                <h5 class="personal-username">Nome Utente</h5>
+                <h5 class="personal-username">{{ user.name }}</h5>
                 <div class="icon">
                     <i class="fas fa-circle-notch"></i>
                 </div>
@@ -47,7 +50,12 @@
                 <input class="search-input" type="text" placeholder="cerca o inizia una nuova chat">
             </div>
             <section class="chats">
-                <div  v-for="user in contacts" class="user">
+                <div
+                    v-for="(user, index) in contacts" 
+                    class="user"
+                    :class="index === activeChat? 'active' :''"
+                    @click = "setChat(index)"
+                >
                     <div class="user-image">
                         <img :src="`./img/avatar${user.avatar}.jpg`" :alt="user.name">
                     </div>
@@ -60,11 +68,14 @@
         <main class="main">
             <div class="header-main">
                 <div class="active-user-image">
-                    <img src="./img/avatar_5.jpg" alt="">
+                    <img
+                        :src="`./img/avatar${contacts[activeChat].avatar}.jpg`"
+                        :alt="contacts[activeChat].name"
+                    >
                 </div>
                 <div class="active-user">
                     <div class="active-username">
-                        <h4>Utente</h4>
+                        <h4>{{ contacts[activeChat].name }}</h4>
                     </div>
                     <div class="active-lastAcces">
                         <h6>Oggi</h6>
@@ -81,13 +92,13 @@
                 </div>
             </div>
             <section class="main-content">
-                <div class="message sent">
-                    <div class="text">ciao</div>
-                    <div class="date">data</div>
-                </div>
-                <div class="message recived">
-                    <div class="text">messaggioooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</div>
-                    <div class="date">data</div>
+                <div
+                    v-for="message in contacts[activeChat].messages"
+                    class="message"
+                    :class="message.status === 'sent'? 'sent' :'received'"
+                >
+                    <div class="text">{{ message.text }}</div>
+                    <div class="date">{{ message.date }}</div>
                 </div>
             </section>
             <div class="footer-main">
