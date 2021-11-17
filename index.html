@@ -47,11 +47,11 @@
                 <input class="search-input" type="text" placeholder="cerca o inizia una nuova chat">
             </div>
             <section class="chats">
-                <div class="user">
+                <div  v-for="user in contacts" class="user">
                     <div class="user-image">
-                        <img src="./img/avatar_2.jpg" alt="">
+                        <img :src="`./img/avatar${user.avatar}.jpg`" :alt="user.name">
                     </div>
-                    <h4 class="username">NOME DELL UTENTE</h4>
+                    <h4 class="username">{{ user.name }}</h4>
                 </div>
 
             </section>

@@ -150,6 +150,15 @@ body {
     display: flex;
     align-items: center;
     padding: 5px;
+    border-top: 1px solid #f5f5f5;
+}
+
+.user:hover {
+    background-color: #f5f5f5;
+}
+
+.user:first-of-type {
+    border-top: none;
 }
 
 .user-image {
