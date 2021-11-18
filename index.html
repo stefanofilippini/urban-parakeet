@@ -47,7 +47,12 @@
             </section>
             <section class="search">
                 <button class="button-search"><i class="fas fa-search"></i></button>
-                <input class="search-input" type="text" placeholder="cerca o inizia una nuova chat">
+                <input
+                    class="search-input"
+                    type="text"
+                    placeholder="cerca o inizia una nuova chat"
+                    v-model.trim="research"
+                >
             </section>
             <section class="chats">
                 <div
@@ -55,6 +60,7 @@
                     class="user"
                     :class="index === activeChat? 'active' :''"
                     @click = "setChat(index)"
+                    v-if="user.name.toLowerCase().includes(research)"
                 >
                     <div class="user-image">
                         <img :src="`./img/avatar${user.avatar}.jpg`" :alt="user.name">

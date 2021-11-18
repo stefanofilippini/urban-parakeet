@@ -98,7 +98,10 @@ var app = new Vue ({
 
         newMessage: '',
 
+        research: '',
+
     },
+
     methods : {
         setChat (index) {
             this.activeChat = index
