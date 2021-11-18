@@ -19,6 +19,14 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mt-2 {
+    margin-top: 2px;
+}
+
 .container {
     display: inline-block;
     background-color: #ffffff;
@@ -217,7 +225,8 @@ body {
     flex-direction: column-reverse;
     flex-grow: 1;
     background-image: url(../img/mine.jpg);
-    padding: 40px 70px;
+    padding: 0px 70px 40px;
+    overflow: auto;
 }
 
 .message {
@@ -227,7 +236,6 @@ body {
     flex-direction: column;
     min-width: 150px;
     max-width: 500px;
-    margin-bottom: 15px;
 }
 
 .sent {
@@ -279,8 +287,4 @@ body {
 .footer-main .icon {
     color: #6e7578;
     font-size: 22px;
-}
-
-.overflow-scroll {
-    overflow: auto;
 }

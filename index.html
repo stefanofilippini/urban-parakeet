@@ -15,7 +15,7 @@
 <body>
     <div id="app" class="container">
         <aside class="aside">
-            <div class="header-aside">
+            <section class="header-aside">
                 <div class="personal-image">
                     <img
                         :src="`./img/avatar${user.avatar}.jpg`"
@@ -32,8 +32,8 @@
                 <div class="icon">
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
-            </div>
-            <div class="notifications">
+            </section>
+            <section class="notifications">
                 <div class="notific">
                     <i class="fas fa-bell-slash"></i>
                 </div>
@@ -44,11 +44,11 @@
                     <a href="#" class="link-notific">Attiva notifiche desktop</a>
                 </div>
 
-            </div>
-            <div class="search">
+            </section>
+            <section class="search">
                 <button class="button-search"><i class="fas fa-search"></i></button>
                 <input class="search-input" type="text" placeholder="cerca o inizia una nuova chat">
-            </div>
+            </section>
             <section class="chats">
                 <div
                     v-for="(user, index) in contacts" 
@@ -73,7 +73,7 @@
         </aside>
 
         <main class="main">
-            <div class="header-main">
+            <section class="header-main">
                 <div class="active-user-image">
                     <img
                         :src="`./img/avatar${contacts[activeChat].avatar}.jpg`"
@@ -97,18 +97,18 @@
                 <div class="icon">
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
-            </div>
-            <section class="main-content overflow-scroll">
+            </section>
+            <section class="main-content">
                 <div
-                    v-for="message in contacts[activeChat].messages"
+                    v-for="(message, i) in contacts[activeChat].messages"
                     class="message"
-                    :class="message.status === 'sent'? 'sent' :'received'"
-                >
+                    :class="[message.status === 'sent'? 'sent' :'received', nextMexPres(contacts[activeChat].messages, i)? 'mt-2' :'mt-15']"
+                    >
                     <div class="text">{{ message.text }}</div>
                     <div class="date">{{ message.date }}</div>
                 </div>
             </section>
-            <div class="footer-main">
+            <section class="footer-main">
                 <div class="icon"><i class="far fa-smile"></i></i></div>
                 <input
                     class="new-text"
@@ -119,7 +119,7 @@
                     @keyup.enter="addMessage()"
                 >
                 <div class="icon"><i class="fas fa-microphone"></i></i></div>
-            </div>
+            </section>
         </main>
     </div>
 

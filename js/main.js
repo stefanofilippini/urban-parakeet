@@ -116,7 +116,7 @@ var app = new Vue ({
         },
 
         lastMessage(array) {
-            let last_message = array[array.length - 1].text;
+            let last_message = array[0].text;
             return last_message;
         },
 
@@ -156,6 +156,19 @@ var app = new Vue ({
                 //set focus
                 this.$refs.messageInput.focus()
             }
+        },
+
+        nextMexPres(array, index) {
+            let state = false
+            let incrI = index + 1
+            console.log(incrI);
+            if (array[incrI] !== undefined) {
+                state = array[index].status === array[incrI].status
+            } else {
+                state = false
+            }
+            console.log(state);
+            return state
         },
     }
 })
