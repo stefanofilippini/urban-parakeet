@@ -214,7 +214,7 @@ body {
 
 .main-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     flex-grow: 1;
     background-image: url(../img/mine.jpg);
     padding: 40px 70px;
